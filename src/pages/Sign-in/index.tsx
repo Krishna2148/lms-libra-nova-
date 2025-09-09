@@ -98,7 +98,7 @@ export default function SignIn() {
         );
 
         setToken("permissions", JSON.stringify(permissions));
-        navigate("admin/dashboard");
+        navigate("admin");
         // window.location.href = "admin/dashboard";
 
       } else {
