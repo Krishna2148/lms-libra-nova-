@@ -1,5 +1,5 @@
 import { type ReactNode } from "react";
-import { getToken, removeAllTokens } from "./tokenHandler";
+import { getToken, removeAllTokens } from "../utils/tokenHandler";
 
 interface ProtectedRouteProps {
     children: ReactNode;

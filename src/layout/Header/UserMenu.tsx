@@ -1,7 +1,8 @@
+import Toast from "@/Components/Toastify";
 import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
 import { Button } from "@/Components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/Components/ui/dropdown-menu";
-import { removeAllTokens } from "@/lib/tokenHandler";
+import { removeAllTokens } from "@/utils/tokenHandler";
 import { User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +11,7 @@ export function UserMenu() {
 
     const handleLogout = () => {
         removeAllTokens();
+        Toast("Logout successful", "success");
         navigate("/");
     };
 
@@ -35,7 +37,7 @@ export function UserMenu() {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
                     className="text-red-500 hover:bg-red-500/20"
-                  onClick={handleLogout}
+                    onClick={handleLogout}
                 >
                     Log out
                 </DropdownMenuItem>

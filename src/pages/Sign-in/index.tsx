@@ -1,9 +1,12 @@
 import { LOGO } from "@/app/constraints";
-import { setToken, getToken, removeToken } from "@/lib/tokenHandler";
+import Toast from "@/Components/Toastify";
+import { setToken, getToken, removeToken } from "@/utils/tokenHandler";
 import { Eye, EyeOff, Lock, User } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SignIn() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -73,6 +76,7 @@ export default function SignIn() {
           setToken("remembered_password", formData.password);
           setToken("remember_me", "true");
         }
+        Toast("Login successful", "success");
 
         setToken("token", data.data.token);
         setToken("username", data.data.username);
@@ -92,10 +96,14 @@ export default function SignIn() {
         const permissions = permissionsData.data.map(
           (permission) => permission.name
         );
+
         setToken("permissions", JSON.stringify(permissions));
-        window.location.href = "admin/dashboard";
+        navigate("admin/dashboard");
+        // window.location.href = "admin/dashboard";
+
       } else {
         setError(data.message || "Login failed");
+        Toast(data?.message, "error");
       }
     } catch (err) {
       setError("Something went wrong. Please try again." + err);

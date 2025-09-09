@@ -69,7 +69,7 @@ const Header = ({ isCollapsed, setIsCollapsed }: SidebarProps) => {
     });
 
     return (
-        <div className="flex h-full w-full items-center justify-between border-b border-slate-300 px-3">
+        <div className="flex h-full w-full items-center justify-between border-b border-slate-300 px-3 bg-gray-200">
             <TopNav isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
             {/* Greeting and time - shown on desktop */}
             <div className="hidden md:flex ml-5 pr-5 md:flex-1">

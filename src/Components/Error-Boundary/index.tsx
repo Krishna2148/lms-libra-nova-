@@ -1,24 +1,35 @@
 import { useNavigate } from "react-router-dom";
+import { motion } from 'framer-motion';
+
 
 export default function ErrorBoundary() {
     const navigate = useNavigate();
+
     return (
-        <div className="flex flex-col items-center justify-center mt-8 h-screen w-screen">
-            <div className="w-[32%] flex flex-col gap-[0.5rem] items-center mb-[8rem]">
-               
-                <div className="font-bold text-primary mt-2">404 - PAGE NOT FOUND</div>
-                <p className="text-center">
-                    {" "}
-                    The Page you are Looking for might have been removed, had its name
-                    changed or is temporarily unavailable
+        <div className="flex flex-col items-center justify-center min-h-screen bg-black p-4">
+            {/* Animated Card */}
+            <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 2.5 }}
+                className="bg-white shadow-xl rounded-2xl max-w-lg w-full p-8 flex flex-col items-center text-center"
+            >
+
+                <h1 className="text-4xl font-extrabold text-gray-800 mb-2">
+                    404 - Page Not Found
+                </h1>
+                <p className="text-gray-600 mb-6">
+                    The page you are looking for might have been removed, had its name
+                    changed, or is temporarily unavailable.
                 </p>
+
                 <button
-                    className="bg-[#1d4ed8] py-3 px-4 text-white-100 rounded-[2rem]"
                     onClick={() => navigate("/admin/dashboard")}
+                    className="bg-blue-600 hover:bg-blue-700 transition-all duration-300 text-white font-semibold py-3 px-6 rounded-full shadow-md hover:shadow-lg"
                 >
-                    Go To Homepage
+                    Go to Homepage
                 </button>
-            </div>
+            </motion.div>
         </div>
     );
 }

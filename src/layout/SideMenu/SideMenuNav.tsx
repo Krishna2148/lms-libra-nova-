@@ -38,7 +38,7 @@ function NavLinkIcon({ title, icon, label, href, closeNav }: NavLinkProps) {
             "flex items-center justify-center h-10 w-10 rounded-lg transition-colors",
             isActive
               ? "bg-white text-blue-600 shadow-md"
-              : "text-blue-100 hover:bg-blue-600 hover:text-white"
+              : "text-blue-100 hover:bg-slate-800 hover:text-white"
           )}
         >
           {icon}
@@ -79,7 +79,7 @@ function NavLinkIconDropdown({
                 "h-10 w-10 rounded-lg transition-colors",
                 isChildActive
                   ? "bg-white text-blue-600 shadow-md"
-                  : "text-blue-100 hover:bg-blue-600 hover:text-white"
+                  : "text-blue-100 hover:bg-slate-800 hover:text-white"
               )}
               onClick={toggleDropdown}
             >
@@ -235,8 +235,8 @@ function NavLink({
       className={cn(
         "flex items-center h-10 px-3 rounded-lg transition-colors",
         isActive
-          ? "bg-blue-800 text-white shadow-md font-medium"
-          : "text-white hover:bg-blue-800 ",
+          ? "bg-slate-900 text-white shadow-md font-medium"
+          : "text-white hover:bg-slate-800 ",
         subLink && "h-8 text-sm ml-2"
       )}
       aria-current={isActive ? "page" : undefined}
@@ -288,7 +288,7 @@ function NavLinkDropdown({
           "flex items-center justify-between w-full h-10 px-3 rounded-lg transition-colors cursor-pointer",
           isChildActive
             ? "bg-white text-blue-600 shadow-md font-medium"
-            : "text-blue-100 hover:bg-blue-500 hover:text-white"
+            : "text-blue-100 hover:bg-slate-800 hover:text-white"
         )}
       >
         <div className="flex items-center">

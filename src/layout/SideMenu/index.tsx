@@ -30,7 +30,7 @@ export default function Sidebar({ className, isCollapsed }: SidebarProps) {
     <aside
       className={cn(
         `fixed left-0 right-0 top-0 z-50 w-full transition-[width] md:bottom-0 md:right-auto md:h-svh 
-     ${isCollapsed ? "md:w-14" : "md:w-64"} bg-blue-500`, 
+     ${isCollapsed ? "md:w-14" : "md:w-64"} bg-slate-600`, 
         className,
       )}
     >
@@ -44,7 +44,7 @@ export default function Sidebar({ className, isCollapsed }: SidebarProps) {
         {/* Header stays white */}
         <Layout.Header
           sticky
-          className="bg-white z-50 flex h-[60px] justify-between border-b border-slate-200 px-4 py-3 md:px-4"
+          className="bg-gray-300 z-50 flex h-[60px] justify-between border-b border-slate-200 px-4 py-3 md:px-4"
         >
           <div className={`flex items-center ${!isCollapsed ? "gap-2" : ""}`}>
             <div
@@ -91,6 +91,5 @@ export default function Sidebar({ className, isCollapsed }: SidebarProps) {
         </ScrollArea>
       </Layout>
     </aside>
-
   )
 }

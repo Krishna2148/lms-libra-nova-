@@ -1,11 +1,13 @@
-import { decryptData, encryptData } from "./Encryption";
+import { decryptData, encryptData } from "../lib/Encryption";
 import Cookies from "js-cookie";
 
 export const getToken = (key: string) => {
     if (key === "permissions") {
-        return decryptData(localStorage.getToken(key) || "");
+        const data = localStorage.getItem(key) || ""; // Fixed: getItem not getToken
+        return data ? decryptData(data) : "";
     }
-    return decryptData(Cookies.get(key) || "");
+    const data = Cookies.get(key) || "";
+    return data ? decryptData(data) : "";
 }
 
 export const setToken = (key: string, value: string) => {

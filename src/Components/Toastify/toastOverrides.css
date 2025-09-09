@@ -1,0 +1,24 @@
+/* toastOverrides.css */
+
+/* Override react-toastify default styles */
+.Toastify__toast-container {
+  padding: 0;
+}
+
+.Toastify__toast {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: auto !important;
+  border-radius: 0 !important;
+}
+
+.Toastify__toast-body {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.Toastify__close-button {
+  display: none !important;
+}
