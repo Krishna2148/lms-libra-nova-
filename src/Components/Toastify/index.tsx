@@ -26,7 +26,7 @@ const Toast: ToastFunction = (message, variant) => {
 
     toast(<CustomToast title={title} icon={icon} message={message} className={className} />, {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: true,
         closeButton: false,
     });

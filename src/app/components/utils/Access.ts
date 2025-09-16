@@ -1,5 +1,4 @@
-// utils/Access.ts
-import { getToken } from "./tokenHandler"
+import { getToken } from "./TokenHandler"
 
 export const hasPermission = (permission: string): boolean => {
     const userPermissions = getToken("permissions") || "";
@@ -12,5 +11,4 @@ export const hasPermission = (permission: string): boolean => {
     }
 }
 
-// Export as default object or individual functions
 export default { hasPermission };

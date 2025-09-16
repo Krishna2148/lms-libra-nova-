@@ -2,7 +2,7 @@ import useCheckActiveNav from "@/hooks/UseCheckActiveNav";
 import type { SideLink } from "../SideMenuData";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/Components/ui/tooltip";
 import { Link } from "react-router-dom";
-import { cn } from "@/lib/utils";
+import { cn } from "@/app/components/lib/utils";
 import { Button } from "@/Components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/Components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";

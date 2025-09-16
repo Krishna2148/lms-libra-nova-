@@ -27,6 +27,7 @@ export default tseslint.config([
     rules: {
       // allow @ts-nocheck, @ts-ignore, @ts-expect-error
       '@typescript-eslint/ban-ts-comment': 'off',
+      "@typescript-eslint/no-explicit-any": "off"
     },
   },
 ])

@@ -26,8 +26,8 @@ interface InputProps {
 
 export default function Input({
   label,
+  name,               // ✅ add this
   placeholder,
-  // description,
   error,
   className,
   leftSection,
@@ -43,16 +43,24 @@ export default function Input({
   required = false,
   handleBlur,
   onKeyDown,
-}: InputProps) {
+}: InputProps & { name: string }) {   // ✅ extend props
   return (
-    <div className={className || "flex flex-col gap-[0.25rem]"} style={{ color, fontSize, fontWeight, ...style }}>
+    <div
+      className={className || "flex flex-col gap-[0.25rem]"}
+      style={{ color, fontSize, fontWeight, ...style }}
+    >
       <label className="text-[0.85rem] font-medium text-gray-700 ">
         {label}
         {required && <span className="text-red-500"> *</span>}
       </label>
       <div className="relative">
-        {leftSection && <div className="absolute border-gray-200 border bg-gray-200 rounded-md p-1 left-2 top-1/2 transform -translate-y-1/2 z-10">{leftSection}</div>}
+        {leftSection && (
+          <div className="absolute border-gray-200 border bg-gray-200 rounded-md p-1 left-2 top-1/2 transform -translate-y-1/2 z-10">
+            {leftSection}
+          </div>
+        )}
         <input
+          name={name}               // ✅ ensures correct key in formData
           value={value}
           disabled={disabled}
           placeholder={placeholder}
@@ -78,15 +86,22 @@ export default function Input({
             paddingRight: rightSection ? "40px" : "12px",
           }}
         />
-        {rightSection && <div className="absolute right-3 top-1/2 transform -translate-y-1/2 z-10">{rightSection}</div>}
+        {rightSection && (
+          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 z-10">
+            {rightSection}
+          </div>
+        )}
       </div>
       {error && <span className="text-[0.75rem] text-red-500">{error}</span>}
     </div>
-  )
+  );
 }
+
 
 export function PasswordInput({
   label,
+  name,             // ✅ add this
+  value,            // ✅ add this
   placeholder,
   description,
   error,
@@ -99,18 +114,27 @@ export function PasswordInput({
   fontWeight = 400,
   style,
   required = false,
-}: InputProps) {
-  const [showPassword, setShowPassword] = useState(false)
+}: InputProps & { name: string; value: string }) {   // ✅ extend props
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className={className || "flex flex-col gap-[0.25rem]"} style={{ color, fontSize, fontWeight, ...style }}>
+    <div
+      className={className || "flex flex-col gap-[0.25rem]"}
+      style={{ color, fontSize, fontWeight, ...style }}
+    >
       <label className="text-[0.85rem] font-medium text-gray-700">
         {label}
         {required && <span className="text-red-500"> *</span>}
       </label>
       <div className="relative">
-        {leftSection && <div className="absolute border-gray-200 border bg-gray-200 rounded-md p-1 left-2 top-1/2 transform -translate-y-1/2 z-10">{leftSection}</div>}
+        {leftSection && (
+          <div className="absolute border-gray-200 border bg-gray-200 rounded-md p-1 left-2 top-1/2 transform -translate-y-1/2 z-10">
+            {leftSection}
+          </div>
+        )}
         <input
+          name={name}               // ✅ ensures correct field updates
+          value={value}             // ✅ controlled input
           type={showPassword ? "text" : "password"}
           placeholder={placeholder}
           onChange={handleChange}
@@ -139,11 +163,14 @@ export function PasswordInput({
           {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
         </button>
         {rightSection && (
-          <div className="absolute right-10 top-1/2 transform -translate-y-1/2 z-10">{rightSection}</div>
+          <div className="absolute right-10 top-1/2 transform -translate-y-1/2 z-10">
+            {rightSection}
+          </div>
         )}
       </div>
       {description && <span className="text-[0.75rem] text-gray-600">{description}</span>}
       {error && <span className="text-[0.75rem] text-red-500">{error}</span>}
     </div>
-  )
+  );
 }
+

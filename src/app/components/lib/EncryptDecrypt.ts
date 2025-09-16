@@ -1,5 +1,5 @@
 import CryptoJS from "crypto-js";
-const SECRET_KEY = "9Uk|Yug@hq$qkO,]0s|pf!-T-!<yRzWZ_J7[AW*X}+_A+D@&0SdsNAS4`Q)63wS";
+const SECRET_KEY = "secret-key||KRISHNA||BHATT";
 
 export const encryptData = (data: any): string => {
     const ciphertext = CryptoJS.AES.encrypt(JSON.stringify(data), SECRET_KEY).toString();

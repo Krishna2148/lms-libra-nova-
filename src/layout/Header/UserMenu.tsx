@@ -2,7 +2,7 @@ import Toast from "@/Components/Toastify";
 import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
 import { Button } from "@/Components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/Components/ui/dropdown-menu";
-import { removeAllTokens } from "@/utils/tokenHandler";
+import { removeAllTokens } from "@/app/components/utils/TokenHandler";
 import { User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 

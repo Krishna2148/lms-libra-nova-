@@ -1,6 +1,6 @@
 import { LayoutDashboard, User, UserRound } from "lucide-react";
 import type { JSX } from "react";
-import Access from '../utils/Access';
+// import Access from '../utils/Access';
 
 export interface NavLink {
   title: string;
@@ -46,14 +46,14 @@ export const allMenuItems: SideLink[] = [
 
 // Filter menu items based on user permissions
 export const sideMenuData = allMenuItems
-  .filter(item => 
-    !item.requiredPermission || 
-    (item.requiredPermission && Access.hasPermission(item.requiredPermission))
-  )
-  .map(item => ({
-    ...item,
-    sub: item.sub?.filter(subItem => 
-      !subItem.requiredPermission || 
-      (subItem.requiredPermission && Access.hasPermission(subItem.requiredPermission))
-    )
-  }));
+  // .filter(item => 
+  //   !item.requiredPermission || 
+  //   // (item.requiredPermission && Access.hasPermission(item.requiredPermission))
+  // )
+  // .map(item => ({
+  //   ...item,
+  //   sub: item.sub?.filter(subItem => 
+  //     !subItem.requiredPermission || 
+  //     (subItem.requiredPermission && Access.hasPermission(subItem.requiredPermission))
+  //   )
+  // }));

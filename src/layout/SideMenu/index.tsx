@@ -1,5 +1,5 @@
 import type React from "react"
-import { cn } from "@/lib/utils"
+import { cn } from "@/app/components/lib/utils"
 import { Menu, Plus } from "lucide-react"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -30,7 +30,7 @@ export default function Sidebar({ className, isCollapsed }: SidebarProps) {
     <aside
       className={cn(
         `fixed left-0 right-0 top-0 z-50 w-full transition-[width] md:bottom-0 md:right-auto md:h-svh 
-     ${isCollapsed ? "md:w-14" : "md:w-64"} bg-slate-600`, 
+     ${isCollapsed ? "md:w-14" : "md:w-64"} bg-slate-600`,
         className,
       )}
     >

@@ -1,4 +1,4 @@
-import { decryptData, encryptData } from "../lib/Encryption";
+import { decryptData, encryptData } from "../lib/EncryptDecrypt";
 import Cookies from "js-cookie";
 
 export const getToken = (key: string) => {
