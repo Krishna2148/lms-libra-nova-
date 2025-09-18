@@ -10,8 +10,8 @@ import Input, { PasswordInput } from "@/components/Input";
 export default function SignIn() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    username: "",
-    password: "",
+    username: "jaurab12",
+    password: "User@1234",
   });
   const [errors, setErrors] = useState<{ username?: string; password?: string }>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +42,7 @@ export default function SignIn() {
 
     setIsLoading(true);
     try {
-      const res = await fetch(`${BACKEND_BASE_URL}/login`, {
+      const res = await fetch(`${BACKEND_BASE_URL}users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,43 +51,27 @@ export default function SignIn() {
       });
 
       const data = await res.json();
-      if (res.ok && data.success) {
+      if (res.ok) {
         setToken("token", data.data.token);
         setToken("username", data.data.username);
-        setToken("role", JSON.stringify(data.data.role));
-        const permissionsRes = await fetch(
-          `${BACKEND_BASE_URL}/permission/by-roles?roles=${data.data.role[0]}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Bearer " + data.data.token,
-            },
-          }
-        );
-
-        const permissionsData = await permissionsRes.json();
-        const permissions = permissionsData.data.map(
-          (permission: any) => permission.name
-        );
-
-        setToken("permissions", JSON.stringify(permissions));
-        Toast("Login successful", "success");
-
-        navigate("admin");
+        setToken("roles", JSON.stringify(data.data.roles));
+        Toast(data?.message || "Login successful", "success"); 
+        navigate("/admin");
       } else {
         Toast(data?.message || "Login failed", "error");
       }
     } catch (error: any) {
-      Toast(error?.message || "Something went wrong. Please try again.", "error");
+      Toast(
+        error?.message || "Something went wrong. Please try again.",
+        "error"
+      );
     } finally {
       setIsLoading(false);
     }
   };
-
   return (
     <div className="min-h-screen bg-gray-300 flex items-center justify-center p-6">
-      <div className=" max-w-6xl w-full flex rounded-2xl overflow-hidden shadow-2xl">
+      <div className=" max-w-5xl w-full flex rounded-2xl overflow-hidden shadow-2xl">
         {/* Left Panel */}
         <div className="w-full md:w-1/2 bg-gradient-to-br from-green-300 to-emerald-800 text-white p-12 flex flex-col justify-center">
           <div className="text-center">

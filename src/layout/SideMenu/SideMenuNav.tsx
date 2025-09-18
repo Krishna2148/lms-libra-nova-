@@ -1,13 +1,13 @@
 import useCheckActiveNav from "@/hooks/UseCheckActiveNav";
 import type { SideLink } from "../SideMenuData";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/Components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Link } from "react-router-dom";
 import { cn } from "@/app/components/lib/utils";
 import { Button } from "@/Components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/Components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/Components/ui/collapsible";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 
 interface NavProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -38,7 +38,7 @@ function NavLinkIcon({ title, icon, label, href, closeNav }: NavLinkProps) {
             "flex items-center justify-center h-10 w-10 rounded-lg transition-colors",
             isActive
               ? "bg-white text-blue-600 shadow-md"
-              : "text-blue-100 hover:bg-slate-800 hover:text-white"
+              : "text-white hover:bg-slate-800 hover:text-white"
           )}
         >
           {icon}
@@ -79,7 +79,7 @@ function NavLinkIconDropdown({
                 "h-10 w-10 rounded-lg transition-colors",
                 isChildActive
                   ? "bg-white text-blue-600 shadow-md"
-                  : "text-blue-100 hover:bg-slate-800 hover:text-white"
+                  : "text-white hover:bg-slate-800 hover:text-white"
               )}
               onClick={toggleDropdown}
             >
@@ -287,12 +287,12 @@ function NavLinkDropdown({
         className={cn(
           "flex items-center justify-between w-full h-10 px-3 rounded-lg transition-colors cursor-pointer",
           isChildActive
-            ? "bg-white text-blue-600 shadow-md font-medium"
-            : "text-blue-100 hover:bg-slate-800 hover:text-white"
+            ? "bg-slate-700 text-white shadow-md font-medium"
+            : "text-white hover:bg-slate-800 hover:text-white"
         )}
       >
         <div className="flex items-center">
-          <span className={cn("mr-3", isChildActive ? "text-blue-600" : "text-blue-200")}>
+          <span className={cn("mr-3", isChildActive ? "text-white" : "text-white")}>
             {icon}
           </span>
           <span className="flex-1 truncate text-left">{title}</span>

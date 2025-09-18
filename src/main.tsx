@@ -6,13 +6,14 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Routes } from './routes/routes'
 import { ToastContainer } from 'react-toastify'
+import { store } from './redux/store'
 
 const router = createBrowserRouter(Routes);
 createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
+    <Provider store={store}>
       <RouterProvider router={router} />
       <ToastContainer />
-    {/* </Provider> */}
+    </Provider>
   </React.StrictMode>
 )

@@ -1,7 +1,7 @@
 import { getToken } from "./TokenHandler"
 
-export const hasPermission = (permission: string): boolean => {
-    const userPermissions = getToken("permissions") || "";
+export const hasRole = (permission: string): boolean => {
+    const userPermissions = getToken("roles") || "";
     try {
         const permissionsArray = userPermissions ? JSON.parse(userPermissions) : [];
         return permissionsArray.includes(permission);
@@ -11,4 +11,4 @@ export const hasPermission = (permission: string): boolean => {
     }
 }
 
-export default { hasPermission };
+export default { hasRole };

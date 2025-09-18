@@ -1,8 +1,9 @@
 import App from "@/App";
-import ErrorBoundary from "@/Components/Error-Boundary";
+import ErrorBoundary from "@/components/Error-Boundary";
 import type { ReactNode } from "react";
 import { adminLinks } from "./adminLinks";
 import Layout from "@/layout";
+import ProtectedRoute from "@/app/components/lib/ProtectedRoute";
 
 interface adminLinksType {
     path: string;
@@ -24,7 +25,9 @@ export const Routes: RouteItem[] = [
     {
         path: "/admin",
         element: (
-            <Layout />
+            <ProtectedRoute>
+                <Layout />
+            </ProtectedRoute>
         ),
         children: adminLinks.map((each) => ({
             path: `/admin/${each.path}`,

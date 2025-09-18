@@ -1,4 +1,4 @@
-import { LayoutDashboard, User, UserRound } from "lucide-react";
+import { BarChart3, Bookmark, BookOpenText, IdCard, LayoutDashboard, Library, User, UserCog, UserRoundCheck } from "lucide-react";
 import type { JSX } from "react";
 // import Access from '../utils/Access';
 
@@ -23,25 +23,50 @@ export const allMenuItems: SideLink[] = [
     requiredPermission: "CREATE_USER",
   },
   {
+    title:"Book Management",
+    href:"/admin/book-mgmt",
+    icon:<BookOpenText size={18} />,
+  },
+  {
+   title:"Borrow Books",
+   href:"/admin/borrow-books",
+   icon:<Library size={18} />,
+  },
+  {
+    title:"Reservation",
+    href:"/admin/reservation",
+    icon:<Bookmark size={18} />,
+  },
+  {
+    title:"Membership",
+    href:"/admin/membership",
+    icon:<IdCard size={18} />,
+  },
+  {
     title: "User Management",
-    href: "user-management",
+    href: "user-mgmt",
     icon: <User size={18} />,
     // requiredPermission: "MANAGE_USERS",
     sub: [
       {
         title: "User List",
-        href: "/dashboard/user-management/user-list",
-        icon: <User size={18} />,
+        href: "/admin/user-mgmt/users",
+        icon: <UserRoundCheck size={18} />,
         // requiredPermission: "VIEW_USERS"
       },
       {
-        title: "User Role & Permission",
-        href: "/dashboard/user-management/user-roles-permission",
-        icon: <UserRound size={18} />,
+        title: "Role List",
+        href: "/admin/user-mgmt/roles",
+        icon: <UserCog size={18} />,
         // requiredPermission: "MANAGE_ROLES"
       },
     ],
   },
+  {
+    title:"Reports",
+    href:"/admin/reports",
+    icon:<BarChart3 size={18} />,
+  }
 ];
 
 // Filter menu items based on user permissions

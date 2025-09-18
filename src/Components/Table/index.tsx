@@ -1,6 +1,6 @@
 import type React from "react"
 import { useState } from "react"
-import { FileX } from "lucide-react"
+import { ChevronDown, FileX } from "lucide-react"
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react"
 
 interface TableProps {
@@ -150,21 +150,24 @@ const Table: React.FC<TableProps> = ({
             </div>
 
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-2">
-                {/* Rows per page */}
-                <div className="flex items-center gap-3">
-                    <select
-                        className="border border-slate-300 rounded-lg px-5 py-2 text-sm bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                        onChange={handleRowsPerPageChange}
-                        value={rowPerPage}
-                    >
-                        {[5, 10, 20, 30, 50].map((num) => (
-                            <option key={num} value={num}>
-                                {num}
-                            </option>
-                        ))}
-                    </select>
+                <div className="flex items-center gap-3 relative">
+                    <div className="relative">
+                        <select
+                            className="appearance-none border border-slate-300 rounded-lg px-5 py-2 text-sm bg-white pr-10 outline-none focus:outline-none focus:ring-0 focus:border-blue-300"
+                            onChange={handleRowsPerPageChange}
+                            value={rowPerPage}
+                        >
+                            {[2, 5, 10, 20, 30, 50].map((num) => (
+                                <option key={num} value={num}>
+                                    {num}
+                                </option>
+                            ))}
+                        </select>
+                        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none w-4 h-4" />
+                    </div>
                     <span className="text-sm text-slate-600">Entries</span>
                 </div>
+
 
                 {pagination && pagination.total > 1 && (
                     <div className="flex items-center gap-1">
