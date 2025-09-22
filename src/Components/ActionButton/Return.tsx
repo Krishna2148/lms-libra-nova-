@@ -1,29 +1,29 @@
-import { Edit } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 import { useState } from "react";
 
-interface UpdateActionProps {
+interface ReturnActionProps {
   tooltipText?: string;
   disabled?: boolean;
 }
 
-const UpdateAction = ({ tooltipText = "Update", disabled = false }: UpdateActionProps) => {
+const ReturnAction = ({ tooltipText = "Return", disabled = false }: ReturnActionProps) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (
     <div className="relative">
       <div
         className={`p-[0.3rem] rounded-sm flex items-center justify-center transition-all ease-in-out duration-200 group
-          ${disabled 
-            ? "bg-gray-200 cursor-not-allowed" 
+          ${disabled
+            ? "bg-gray-200 cursor-not-allowed"
             : "bg-blue-600/20 hover:bg-blue-600/30 cursor-pointer active:scale-95"
           }`}
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
       >
-        <Edit
-          className={`h-[0.9rem] w-[0.9rem] 
-            ${disabled 
-              ? "text-gray-400" 
+        <RotateCcw
+          className={`h-[0.9rem] w-[0.9rem]
+            ${disabled
+              ? "text-gray-400"
               : "text-blue-600 group-hover:text-blue-800 active:text-blue-900"
             }`}
         />
@@ -39,4 +39,4 @@ const UpdateAction = ({ tooltipText = "Update", disabled = false }: UpdateAction
   );
 };
 
-export default UpdateAction;
+export default ReturnAction;

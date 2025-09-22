@@ -6,7 +6,7 @@ import { getToken } from "@/app/components/utils/TokenHandler";
 export const userApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getAllBooks: builder.query({
-            query: ({ page, size, search }) => ({
+            query: ({ page = 1, size = 10, search = "" } = {}) => ({
                 url: `book?page=${page}&size=${size}&query=${search}`,
                 headers: {
                     Accept: "*/*",
