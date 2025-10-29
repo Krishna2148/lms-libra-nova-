@@ -6,4 +6,8 @@
 body {
   @apply font-sans;
   font-family: "Nunito Sans", sans-serif;
+  /* width:1020px;
+  margin: 0 auto;
+  transform:scale(1);
+  transform-origin:top center; */
 }
