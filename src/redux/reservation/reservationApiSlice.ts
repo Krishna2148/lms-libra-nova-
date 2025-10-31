@@ -5,7 +5,7 @@ import { getToken } from "@/app/components/utils/TokenHandler";
 export const reservationApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getAllReservation: builder.query({
-            query: ({ page, size, search }) => ({
+            query: ({ page=1, size=10, search="" }) => ({
                 url: `reservation?page=${page}&size=${size}&query=${search}`,
                 headers: {
                     Accept: "*/*",
@@ -33,7 +33,7 @@ export const reservationApiSlice = apiSlice.injectEndpoints({
         getSingleReservation: builder.query({
             query: (id) => {
                 return {
-                    url: `reservation/member/${id}`,
+                    url: `reservation/${id}`,
                     headers: {
                         Accept: "*/*",
                         Authorization: `Bearer ${getToken()}`,

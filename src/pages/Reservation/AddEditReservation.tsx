@@ -3,8 +3,8 @@ import SelectUseForm from "@/components/Table/SelectUseForm";
 import Toast from "@/components/Toastify";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { useGetAllBooksQuery } from "@/redux/book-mgmt/bookApiSlice";
+import { useGetAllMembershipQuery } from "@/redux/membership/membershipApiSlice";
 import { useAddReservationMutation } from "@/redux/reservation/reservationApiSlice";
-import { useGetAllUsersQuery } from "@/redux/user-mgmt/user/userApiSlice"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form";
 
@@ -12,7 +12,7 @@ const AddEditReservation = ({ open, setOpen }: any) => {
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
 
     const [addReservation, { isLoading: addLoading }] = useAddReservationMutation();
-    const { data: memberDetails } = useGetAllUsersQuery({});
+    const { data: memberDetails } = useGetAllMembershipQuery({});
     const [memberData, setMemberData] = useState([]);
     const { data: bookDetails } = useGetAllBooksQuery({})
     const [bookData, setBookData] = useState([]);

@@ -12,6 +12,7 @@ import ViewAction from "@/components/ActionButton/View"
 import DeleteAction from "@/components/ActionButton/Delete"
 import DeleteModal from "@/components/Modal/DeleteModal"
 import Toast from "@/components/Toastify"
+import moment from "moment"
 
 const Membership = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -49,13 +50,13 @@ const Membership = () => {
     }
   }
 
-  const tableData = membershipData?.data?.map((item: any, index: number) =>
+  const tableData = membershipData?.data?.content?.map((item: any, index: number) =>
     [
       (currentPage - 1) * rowPerPage + index + 1,
-      item.membershipType,
-      item.dateOfJoining,
-      item.expiryDate,
-      item.borrowLimit,
+      item.membershipType || "-",
+      moment(item.dateOfJoining).format("YYYY-MM-DD")  || "-",
+      item.expiryDate   || "-",
+      item.borrowLimit  || "-",
       <div className="flex gap-2">
         <div
           onClick={() => {

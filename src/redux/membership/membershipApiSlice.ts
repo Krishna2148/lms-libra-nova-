@@ -5,7 +5,7 @@ import { getToken } from "@/app/components/utils/TokenHandler";
 export const membershipApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getAllMembership: builder.query({
-            query: ({ page, size, search }) => ({
+            query: ({ page=1, size=10, search="" }) => ({
                 url: `membership?page=${page}&size=${size}&query=${search}`,
                 headers: {
                     Accept: "*/*",

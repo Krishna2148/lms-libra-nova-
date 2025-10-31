@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 const AddMembership = ({ open, setOpen }: any) => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [userData, setUserData] = useState([]);
-  
+
 
     const { data: users } = useGetAllUsersQuery({});
     const [addMembership, { isLoading: addLoading }] = useAddMembershipMutation();
@@ -25,8 +25,10 @@ const AddMembership = ({ open, setOpen }: any) => {
 
     const userOptions = userData.map((user: any) => ({
         label: `${user.firstName} ${user.middleName} ${user.lastName} (${user.username})`,
-        value: user.id
+        value: user?.id
     }))
+
+    console.log(userData, "+++++++++++++++++")
 
     const onSubmit = async (data: any) => {
         const userId = Number(data?.user)
@@ -91,14 +93,14 @@ export default AddMembership
 const membershipOptions = [
     {
         label: "Student",
-        value: "Student"
+        value: "STUDENT"
     },
     {
         label: "Regular",
-        value: "Regular"
+        value: "REGULAR"
     },
     {
         label: "Premium",
-        value: "Premium"
+        value: "PREMIUM"
     }
 ]
