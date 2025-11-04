@@ -100,25 +100,28 @@ const BookManagement = () => {
   return (
     <>
       <PageHeaders title="Book Management" description="Perform book management operations including adding, updating, and deleting." />
-      <FormContainer className="flex flex-col gap-[1rem]">
-        <div className="flex justify-between">
+      <FormContainer className="flex flex-col gap-[1rem] ">
+        <div className="m-h-screen flex justify-between">
           <SearchInput placeholder="Search..." onChange={handleSearchChange} value={searchData} />
           <div className="flex gap-2">
             <BackButton>Back</BackButton>
             <Button variant="default" handleClick={() => setOpenBookModal(true)}>Add Book</Button>
           </div>
         </div>
-        <Table tableHead={tableHead} tableData={tableData}
-          pagination={{
-            page: currentPage,
-            total: bookData?.data?.totalPages,
-            limit: rowPerPage
-          }}
-          isLoading={bookLoading}
-          handlePageChange={handlePageChange}
-          setRowPerPage={setRowPerPage}
-          rowPerPage={rowPerPage}
-        />
+        {/* <div className="md:max-w-2xl  mx-auto overflow-x-auto w-full"> */}
+
+          <Table tableHead={tableHead} tableData={tableData}
+            pagination={{
+              page: currentPage,
+              total: bookData?.data?.totalPages,
+              limit: rowPerPage
+            }}
+            isLoading={bookLoading}
+            handlePageChange={handlePageChange}
+            setRowPerPage={setRowPerPage}
+            rowPerPage={rowPerPage}
+          />
+        {/* </div> */}
       </FormContainer>
       <AddEditBook
         open={openBookModal}
