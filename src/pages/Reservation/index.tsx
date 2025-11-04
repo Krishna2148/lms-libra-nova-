@@ -123,7 +123,7 @@ const Reservation = () => {
         <Table tableHead={tableHead} tableData={tableData}
           pagination={{
             page: currentPage,
-            total: reservationData?.page?.totalPages || 1,
+            total: reservationData?.data?.page?.totalPages || 1,
             limit: rowPerPage
           }}
           setRowPerPage={setRowPerPage}

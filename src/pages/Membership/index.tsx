@@ -93,7 +93,7 @@ const Membership = () => {
         < Table tableHead={tableHead} tableData={tableData}
           pagination={{
             page: currentPage,
-            total: membershipData?.page?.totalPage || 1,
+            total: membershipData?.data?.page?.totalPage || 1,
             limit: rowPerPage,
           }}
           setRowPerPage={setRowPerPage}

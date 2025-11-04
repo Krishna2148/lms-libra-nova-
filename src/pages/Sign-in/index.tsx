@@ -56,7 +56,7 @@ export default function SignIn() {
         setToken("username", data.data.username);
         setToken("roles", JSON.stringify(data.data.roles));
         Toast(data?.message || "Login successful", "success"); 
-        navigate("/admin");
+        navigate("/admin/dashboard");
       } else {
         Toast(data?.message || "Login failed", "error");
       }

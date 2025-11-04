@@ -96,6 +96,7 @@ const BookManagement = () => {
       </div>
     </div>
   ]);
+  console.log(bookData?.data?.page?.totalPages, "totalPages");
 
   return (
     <>
@@ -108,12 +109,10 @@ const BookManagement = () => {
             <Button variant="default" handleClick={() => setOpenBookModal(true)}>Add Book</Button>
           </div>
         </div>
-        {/* <div className="md:max-w-2xl  mx-auto overflow-x-auto w-full"> */}
-
           <Table tableHead={tableHead} tableData={tableData}
             pagination={{
               page: currentPage,
-              total: bookData?.data?.totalPages,
+              total: bookData?.data?.page?.totalPages || 1,
               limit: rowPerPage
             }}
             isLoading={bookLoading}
@@ -121,7 +120,6 @@ const BookManagement = () => {
             setRowPerPage={setRowPerPage}
             rowPerPage={rowPerPage}
           />
-        {/* </div> */}
       </FormContainer>
       <AddEditBook
         open={openBookModal}

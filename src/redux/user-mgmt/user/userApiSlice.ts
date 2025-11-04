@@ -65,6 +65,17 @@ export const userApiSlice = apiSlice.injectEndpoints({
             },
             invalidatesTags: ['Users'],
         }),
+
+         getAllDetails: builder.query({
+            query: () => ({
+                url: `users/total`,
+                headers: {
+                    Accept: "*/*",
+                    Authorization: `Bearer ${getToken("token")}`,
+                },
+            }),
+            providesTags: ["Users"],
+        }),
     }),
     overrideExisting: true,
 });
@@ -73,5 +84,6 @@ export const {
     useAddUserMutation,
     useGetSingleUserQuery,
     useUpdateUserMutation,
-    useDeleteUserMutation
+    useDeleteUserMutation,
+    useGetAllDetailsQuery
 } = userApiSlice;

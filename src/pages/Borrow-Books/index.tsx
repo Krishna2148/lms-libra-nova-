@@ -109,7 +109,7 @@ const BorrowBooks = () => {
         <Table tableHead={tableHead} tableData={tableData}
           pagination={{
             page: currentPage,
-            total: borrowBooks?.page?.totalPages || 1,
+            total: borrowBooks?.data?.page?.totalPages || 1,
             limit: rowPerPage
           }}
           setRowPerPage={setRowPerPage}
