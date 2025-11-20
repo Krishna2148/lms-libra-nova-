@@ -52,7 +52,6 @@ const AddEditUser = ({ open, setOpen }: any) => {
     };
     try {
       const response = await addUser(payload).unwrap();
-      console.log(response.success)
       if (response.success) {
         Toast(response.message, "success");
         setOpen(false);

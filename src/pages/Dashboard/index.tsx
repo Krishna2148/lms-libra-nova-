@@ -65,7 +65,6 @@ const Dashboard = () => {
   const { data: dashboardData } = useGetAllDetailsQuery({});
 
   const cardData = dashboardData?.data
-  console.log(cardData, "+++++++++")
 
   // Constant data
   const labels = ["Users", "Books", "Memberships", "Reservations", "Borrowed Books"];

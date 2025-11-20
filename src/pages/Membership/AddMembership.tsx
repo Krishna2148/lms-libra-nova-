@@ -28,7 +28,6 @@ const AddMembership = ({ open, setOpen }: any) => {
         value: user?.id
     }))
 
-    console.log(userData, "+++++++++++++++++")
 
     const onSubmit = async (data: any) => {
         const userId = Number(data?.user)
@@ -36,7 +35,6 @@ const AddMembership = ({ open, setOpen }: any) => {
             userId,
             membershipType: data?.membershipType
         }
-        console.log(payload)
         try {
             const response = await addMembership({ body: payload, id: userId }).unwrap();
             if (response.success) {

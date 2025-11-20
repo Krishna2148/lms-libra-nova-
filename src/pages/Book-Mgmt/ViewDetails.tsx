@@ -20,12 +20,22 @@ const ViewDetails = ({ open, setOpen, viewId }: ModalType) => {
     });
 
     const book = bookDetails?.data;
+    const imageBaseUrl = "http://localhost:8080/pics/";
+    
+    // Get the first document that might be an image
+    const imageDocument = book?.documents?.find(doc => 
+        doc.fileName && 
+        (doc.fileName.includes('.jpg') || 
+         doc.fileName.includes('.jpeg') || 
+         doc.fileName.includes('.png') ||
+         doc.fileName.includes('.gif'))
+    );
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogContent className="bg-white md:max-w-[700px]">
                 <DialogHeader>
-                    <DialogTitle >View Book Details</DialogTitle>
+                    <DialogTitle>View Book Details</DialogTitle>
                 </DialogHeader>
 
                 {isLoading ? (
@@ -47,6 +57,23 @@ const ViewDetails = ({ open, setOpen, viewId }: ModalType) => {
                         />
                         <DetailItem label="Created At" value={moment(book?.createdAt).format("YYYY-MM-DD")} direction="col" />
                         <DetailItem label="Updated At" value={moment(book?.updatedAt).format("YYYY-MM-DD")} direction="col" />
+                        
+                        {/* Image Display */}
+                        <div className="col-span-2">
+                            <h3 className="font-semibold mb-2">Book Image</h3>
+                            {imageDocument ? (
+                                <img
+                                    src={`${imageBaseUrl}${imageDocument.fileName}`}
+                                    alt={book?.title || "Book Cover"}
+                                    className="max-w-full h-auto max-h-64 object-contain border rounded"
+                                    onError={(e) => {
+                                        e.currentTarget.style.display = 'none';
+                                    }}
+                                />
+                            ) : (
+                                <p className="text-gray-500">No image available</p>
+                            )}
+                        </div>
                     </div>
                 )}
             </DialogContent>

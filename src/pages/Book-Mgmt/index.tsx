@@ -96,7 +96,6 @@ const BookManagement = () => {
       </div>
     </div>
   ]);
-  console.log(bookData?.data?.page?.totalPages, "totalPages");
 
   return (
     <>
