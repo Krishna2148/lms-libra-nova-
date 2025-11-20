@@ -60,7 +60,6 @@ export default function Sidebar({ className, isCollapsed }: SidebarProps) {
               <div className="font-sans leading-tight">
                 <div className="text-lg font-bold text-indigo-700">LibraNova</div>
                 <div className="text-xs text-slate-500 italic">
-                  (Library + Innovation, futuristic)
                 </div>
               </div>
             </div>

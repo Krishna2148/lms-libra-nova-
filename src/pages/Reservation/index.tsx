@@ -53,7 +53,7 @@ const Reservation = () => {
     }
   }
 
-  const tableData = reservationData?.data?.map((item: any, index: number) => {
+  const tableData = reservationData?.data?.content?.map((item: any, index: number) => {
     const getStatusStyle = (status: string) => {
       switch (status) {
         case "PENDING":

@@ -109,7 +109,7 @@ export default function SignIn() {
               <img src={LOGO} alt="Logo" className="object-contain h-20" />
             </div>
             <div className="text-[0.8rem] text-slate-500 font-bold">
-              (Library + Innovation, futuristic)
+              (Books + Innovation, futuristic)
             </div>
           </div>
 

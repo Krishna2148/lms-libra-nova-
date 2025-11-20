@@ -67,13 +67,12 @@ const AddEditReservation = ({ open, setOpen }: any) => {
 
     const memberOption = memberData?.map((item: any) => ({
         value: item.id,
-        label: `${item.firstName} ${item.middleName} ${item.lastName} (${item.phoneNumber})`,
+        label: `${item.firstName} ${item.middleName} ${item.lastName} (${item.username})`,
     }))
     const bookOption = bookData?.map((item: any) => ({
         value: item.id,
         label: `${item.title} (Available: ${item.availableCopies})`,
     }))
-
     return (
         <>
             <Dialog open={open} onOpenChange={handleDialogChange} >
